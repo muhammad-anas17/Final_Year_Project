@@ -1,6 +1,7 @@
 import Add from  './Pages/Add';
 import Books from './Pages/Books';
 import Update from './Pages/Update';
+import Dashboard from './Pages/Dashboard';
 import './style.css';
 import './App.css';
 import React from "react";
@@ -11,6 +12,8 @@ import {
   Route,
   BrowserRouter, 
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './Pages/Login';
 
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
         <Route path="/" element={<Books/>}/>
         <Route path="/add" element={<Add/>}/>
         <Route path="/update/:id" element={<Update/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/dashboard/:userId" element={<Dashboard/>}/>
       </Routes>
       
       </BrowserRouter>
