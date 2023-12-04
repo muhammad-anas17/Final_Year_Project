@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/AddStyles.css';
 
 const Add = () => {
   const [book, setBooks]= useState({
@@ -13,7 +15,7 @@ const Add = () => {
   const handleChange= (e) =>{
     console.log("Target name:", e.target.name);
     console.log("Target value:", e.target.value);
-    setBooks((prev)=>({...prev, [e.target.name]: e.target.value}))
+    setBooks((prev)=>({...prev, [e.target.name: e.target.value}))
   };
   const handleClick= async (e) =>{
     e.preventDefault();
@@ -30,13 +32,54 @@ const Add = () => {
 
   }
  return (
-    <div className='Form'>
-      <h1>Add New Record</h1>
-      <input type="number" placeholder='ID' name='id' onChange={handleChange} />
-      <input type="text" placeholder='name' name='Name' onChange={handleChange} />
-      <input type="text" placeholder='email' name='email' onChange={handleChange} />
-
-      <button onClick={handleClick}>Add</button>
+  <div className="container-fluid bg-light p-5">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card border-0 shadow-lg">
+              <div className="card-body p-5">
+                <h1 className="mb-4 text-center">Add New Applicant</h1>
+                <form>
+                  <div className="mb-3">
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Applicant ID"
+                      name="id"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Full Name"
+                      name="Name"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Email Address"
+                      name="email"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                    onClick={handleClick}
+                  >
+                    Add Applicant
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
