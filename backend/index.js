@@ -108,3 +108,37 @@ app.get('/api/user/:id', (req, res) => {
   });
 });
 
+
+app.get('/college',(req,res)=>{
+  const q="SELECT * FROM colleges";
+  db.query(q,(err,data)=>{
+      if(err) return res.json(err)
+      return res.json(data);
+  });
+});
+
+app.post('/api/apply',(req,res)=>{
+  const q= "INSERT into status (`UserId`, `SchoolID`,`SubmissionDate`,`ReviewStatus`) VALUES (?)";
+  const values = [
+      req.body.uid,
+      req.body.cid,
+      req.body.sdate,
+      req.body.status,
+      
+    ];
+  
+    db.query(q, [values], (err, data) => {
+      if (err) return res.send(err);
+      return res.json(data); });
+});
+
+app.delete('/api/withdraw', (req, res) => {
+  const collegeId = req.query.collegeId;
+  const userId = req.query.userId;
+  const q = 'DELETE FROM status WHERE SchoolID = ? AND UserId = ?';;
+
+  db.query(q, [collegeId,userId], (err, data) => {
+    if (err) return res.send(err);
+    return res.json(data);
+  });
+});

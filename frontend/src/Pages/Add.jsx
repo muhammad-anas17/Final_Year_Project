@@ -15,7 +15,7 @@ const Add = () => {
   const handleChange= (e) =>{
     console.log("Target name:", e.target.name);
     console.log("Target value:", e.target.value);
-    setBooks((prev)=>({...prev, [e.target.name: e.target.value}))
+    setBooks((prev)=>({...prev, [e.target.name]: e.target.value}))
   };
   const handleClick= async (e) =>{
     e.preventDefault();
