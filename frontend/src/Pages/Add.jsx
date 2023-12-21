@@ -7,10 +7,16 @@ import './styles/AddStyles.css';
 
 const Add = () => {
   const [book, setBooks]= useState({
-    id: null,
+    // id: null,
     Name: "",
     email: "",
+    password:"",
+    DateOfBirth:"",
+    Gender:"",
+    ContactInformation:"",
+    type:"",
   });
+  
   const navigate= useNavigate();
   const handleChange= (e) =>{
     console.log("Target name:", e.target.name);
@@ -23,7 +29,7 @@ const Add = () => {
       console.log(book);
       await axios.post("http://localhost:8800/user",book);
       
-      // navigate("/");
+      navigate("/login");
 
     }catch(err){
       console.log(err);
@@ -40,7 +46,7 @@ const Add = () => {
               <div className="card-body p-5">
                 <h1 className="mb-4 text-center">Add New Applicant</h1>
                 <form>
-                  <div className="mb-3">
+                  {/* <div className="mb-3">
                     <input
                       type="number"
                       className="form-control"
@@ -48,7 +54,7 @@ const Add = () => {
                       name="id"
                       onChange={handleChange}
                     />
-                  </div>
+                  </div> */}
                   <div className="mb-3">
                     <input
                       type="text"
@@ -67,6 +73,68 @@ const Add = () => {
                       onChange={handleChange}
                     />
                   </div>
+                  <div className="mb-3">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="password"
+                      name="password"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="date"
+                      className="form-control"
+                      placeholder="Date Of Birth"
+                      name="DateOfBirth"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="gender"></label>
+                    <select
+                      id="gender"
+                      className="form-control"
+                      name="Gender"
+                      onChange={handleChange}
+                      value={book.Gender}
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="tel"
+                      className="form-control"
+                      placeholder="Phone Number"
+                      name="ContactInformation"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="type"></label>
+                    <select
+                      id="type"
+                      className="form-control"
+                      name="type"
+                      onChange={handleChange}
+                      value={book.type}
+                    >
+                      <option value="">Signing Up As</option>
+                      <option value="student">Applicant</option>
+                      <option value="college">College</option>
+                    </select>
+                  </div>
+
+
+
+
+
+
                   <button
                     type="submit"
                     className="btn btn-primary btn-block"

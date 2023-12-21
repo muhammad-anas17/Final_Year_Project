@@ -23,14 +23,16 @@ app.get('/user',(req,res)=>{
     });
 });
 app.post('/user',(req,res)=>{
-    const q= "INSERT into user (`id`, `Name`, `email`, `password`) VALUES (?)";
+    const q= "INSERT into user (`Name`, `email`, `password`,`DateOfBirth`,`Gender`,`ContactInformation`,`type`) VALUES (?)";
     const values = [
-        req.body.id,
         req.body.Name,
         req.body.email,
         req.body.password,
-        
-      ];
+        req.body.DateOfBirth,
+        req.body.Gender,
+        req.body.ContactInformation,
+        req.body.type,
+   ];
     
       db.query(q, [values], (err, data) => {
         if (err) return res.send(err);
