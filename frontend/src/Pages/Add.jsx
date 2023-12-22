@@ -16,6 +16,7 @@ const Add = () => {
     ContactInformation:"",
     type:"",
   });
+
   
   const navigate= useNavigate();
   const handleChange= (e) =>{
@@ -28,8 +29,11 @@ const Add = () => {
     try{
       console.log(book);
       await axios.post("http://localhost:8800/user",book);
+
+      const res = await axios.post('http://localhost:8800/api/getid', book);
+      console.log(res.data.id);
+      navigate(`/uquestion/${res.data.id}`);
       
-      navigate("/login");
 
     }catch(err){
       console.log(err);

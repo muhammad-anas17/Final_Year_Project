@@ -39,6 +39,35 @@ app.post('/user',(req,res)=>{
         return res.json(data); });
 });
 
+
+app.post('/api/getid', (req, res) => {
+  const { email, password } = req.body;
+
+  const query = 'SELECT id FROM user WHERE email = ? AND password = ?';
+  const values = [email, password];
+
+  db.query(query, values, (err, results) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).json({ error: 'Internal Server Error' });
+      }
+      const userId = results[0].id;
+
+      // Send the id in the response
+      return res.json({ id: userId });
+
+
+  });
+});
+
+
+
+
+
+
+
+
+
 app.delete("/user/:id", (req, res) => {
     const bookId = req.params.id;
     const q = "DELETE FROM user WHERE id = ?";
@@ -143,4 +172,18 @@ app.delete('/api/withdraw', (req, res) => {
     if (err) return res.send(err);
     return res.json(data);
   });
+});
+
+
+app.post('/student',(req,res)=>{
+  const q= "INSERT into student (`UserID`, `DOB`,`gender`) VALUES (?)";
+  const values = [
+      req.body.userid,
+      req.body.DateOfBirth,
+      req.body.Gender,
+ ];
+  
+    db.query(q, [values], (err, data) => {
+      if (err) return res.send(err);
+      return res.json(data); });
 });

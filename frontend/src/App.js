@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/Login';
+import Uquestion from './Pages/Uquestion';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/update/:id" element={<Update/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/dashboard/:userId" element={<Dashboard/>}/>
+        <Route path="/uquestion/:userId" element={<Uquestion/>}/>
       </Routes>
       
       </BrowserRouter>
