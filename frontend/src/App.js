@@ -15,6 +15,8 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/Login';
 import Uquestion from './Pages/Uquestion';
+import Cdashboard from './Pages/Cdashboard';
+import Cquestion from './Pages/Cquestion';
 
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
         <Route path="/update/:id" element={<Update/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/dashboard/:userId" element={<Dashboard/>}/>
+        <Route path="/cdashboard/:userId" element={<Cdashboard/>}/>
         <Route path="/uquestion/:userId" element={<Uquestion/>}/>
+        <Route path="/cquestion/:userId" element={<Cquestion/>}/>
       </Routes>
       
       </BrowserRouter>

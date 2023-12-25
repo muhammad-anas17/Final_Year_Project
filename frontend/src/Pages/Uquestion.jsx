@@ -44,6 +44,9 @@ const Uquestion = () => {
     try{
       console.log(book);
       await axios.post("http://localhost:8800/student",book);
+      await axios.post("http://localhost:8800/grades",grade);
+      navigate(`/login`);
+
     }catch(err){
       console.log(err);
     }

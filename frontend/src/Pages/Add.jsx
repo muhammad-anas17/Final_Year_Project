@@ -32,7 +32,13 @@ const Add = () => {
 
       const res = await axios.post('http://localhost:8800/api/getid', book);
       console.log(res.data.id);
-      navigate(`/uquestion/${res.data.id}`);
+      
+      
+      if (book.type === "student") {
+        navigate(`/uquestion/${res.data.id}`);
+      } else {
+        navigate(`/cquestion/${res.data.id}`);
+      }
       
 
     }catch(err){
