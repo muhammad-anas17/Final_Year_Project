@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
 
-      <BrowserRouter>
+      <Router>
       <Routes>
         <Route path="/" element={<Books/>}/>
         <Route path="/add" element={<Add/>}/>
@@ -44,7 +44,7 @@ function App() {
         <Route path="/collegeform/:userId" element={<CollegeForm/>}/>
       </Routes>
       
-      </BrowserRouter>
+      </Router>
 
       <Router>
         {/* Navbar */}
