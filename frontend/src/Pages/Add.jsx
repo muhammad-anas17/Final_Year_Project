@@ -50,8 +50,8 @@ const Add = () => {
  return (
   <div className="container-fluid bg-light p-5">
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-6">
+        <div className="row justify-content-center align-items-center vh-100">
+          <div className="col-md-20">
             <div className="card border-0 shadow-lg">
               <div className="card-body p-5">
                 <h1 className="mb-4 text-center">Add New Applicant</h1>
