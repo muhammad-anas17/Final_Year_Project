@@ -11,8 +11,6 @@ const Add = () => {
     Name: "",
     email: "",
     password:"",
-    DateOfBirth:"",
-    Gender:"",
     ContactInformation:"",
     type:"",
   });
@@ -91,30 +89,6 @@ const Add = () => {
                       name="password"
                       onChange={handleChange}
                     />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="date"
-                      className="form-control"
-                      placeholder="Date Of Birth"
-                      name="DateOfBirth"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="gender"></label>
-                    <select
-                      id="gender"
-                      className="form-control"
-                      name="Gender"
-                      onChange={handleChange}
-                      value={book.Gender}
-                    >
-                      <option value="">Select Gender</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                      <option value="other">Other</option>
-                    </select>
                   </div>
                   <div className="mb-3">
                     <input
