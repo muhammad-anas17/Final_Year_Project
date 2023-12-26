@@ -17,7 +17,7 @@ import Login from './Pages/Login';
 import Uquestion from './Pages/Uquestion';
 import Cdashboard from './Pages/Cdashboard';
 import Cquestion from './Pages/Cquestion';
-
+import CollegeForm from './Pages/CollegeForm';
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
         <Route path="/cdashboard/:userId" element={<Cdashboard/>}/>
         <Route path="/uquestion/:userId" element={<Uquestion/>}/>
         <Route path="/cquestion/:userId" element={<Cquestion/>}/>
+        <Route path="/collegeform/:userId" element={<CollegeForm/>}/>
       </Routes>
       
       </BrowserRouter>
