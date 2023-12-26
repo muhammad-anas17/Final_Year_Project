@@ -63,6 +63,7 @@ function App() {
           <Route path="/cdashboard/:userId" element={<Cdashboard />} />
           <Route path="/uquestion/:userId" element={<Uquestion />} />
           <Route path="/cquestion/:userId" element={<Cquestion />} />
+          <Route path="/collegeform/:userId" element={<CollegeForm />} />
           <Route path="/books" element={<Books />} />
         </Routes>
       </Router>

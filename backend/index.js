@@ -23,13 +23,11 @@ app.get('/user',(req,res)=>{
     });
 });
 app.post('/user',(req,res)=>{
-    const q= "INSERT into user (`Name`, `email`, `password`,`DateOfBirth`,`Gender`,`ContactInformation`,`type`) VALUES (?)";
+    const q= "INSERT into user (`Name`, `email`, `password`,`ContactInformation`,`type`) VALUES (?)";
     const values = [
         req.body.Name,
         req.body.email,
         req.body.password,
-        req.body.DateOfBirth,
-        req.body.Gender,
         req.body.ContactInformation,
         req.body.type,
    ];
