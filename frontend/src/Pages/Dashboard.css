@@ -1,0 +1,62 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .user-info {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .colleges {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .college {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    width: 100%; /* Make each college entry take the full width */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+  }
+  
+  .college table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .college th,
+  .college td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .college th {
+    background-color: #f2f2f2;
+  }
+  
+  .apply-button,
+  .withdraw-button {
+    padding: 8px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  
+  .apply-button {
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+  }
+  
+  .withdraw-button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+  }
+  

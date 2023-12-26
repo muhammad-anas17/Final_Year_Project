@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const { userId } = useParams();
