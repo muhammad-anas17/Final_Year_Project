@@ -1,0 +1,15 @@
+/* ImageSlider.css */
+
+.image-slider {
+    margin: 20px 0;
+  }
+  
+  .slick-slider {
+    width: 100%;
+  }
+  
+  .slick-slide img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
