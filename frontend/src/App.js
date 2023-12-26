@@ -31,20 +31,7 @@ function App() {
   return (
     <div className="App">
 
-      <Router>
-      <Routes>
-        <Route path="/" element={<Books/>}/>
-        <Route path="/add" element={<Add/>}/>
-        <Route path="/update/:id" element={<Update/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/dashboard/:userId" element={<Dashboard/>}/>
-        <Route path="/cdashboard/:userId" element={<Cdashboard/>}/>
-        <Route path="/uquestion/:userId" element={<Uquestion/>}/>
-        <Route path="/cquestion/:userId" element={<Cquestion/>}/>
-        <Route path="/collegeform/:userId" element={<CollegeForm/>}/>
-      </Routes>
-      
-      </Router>
+     
 
       <Router>
         {/* Navbar */}
