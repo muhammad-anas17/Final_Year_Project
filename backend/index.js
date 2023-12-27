@@ -248,3 +248,19 @@ app.get('/api/college/:id', (req, res) => {
     return res.json(user);
   });
 });
+
+
+
+
+app.post('/form', (req, res) => {
+  const q = "INSERT into questions (`CollegeID`, `QuestionText`) VALUES ?";
+  const values = req.body;
+
+  db.query(q, [values], (err, data) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).json({ error: 'Internal Server Error' });
+      }
+      return res.json(data);
+  });
+});
