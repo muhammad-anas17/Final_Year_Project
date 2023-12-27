@@ -38,17 +38,15 @@ function App() {
      
 
       <Router>
-        {/* Navbar */}
-        <Navbar />
-
-
+        
         <Routes>
           
           <Route
             path="/"
             element={
               <>
-             
+               {/* Navbar */}
+                <Navbar />
                 {/* Hero Section */}
                 <HeroSection />
                     
