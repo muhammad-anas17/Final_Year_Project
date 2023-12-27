@@ -143,37 +143,37 @@ const Dashboard = () => {
           <p>Loading user data...</p>
         )}
 
-<div className="colleges row">
-  {colleges.map((college) => (
-    <div className="college card col-md-6 mb-4" key={college.id}>
-      <h3 className="mb-3">College</h3>
-      <p className="lead">Name: {college.name}</p>
-      <p className="lead">ID: {college.id}</p>
+        <div className="colleges row">
+          {colleges.map((college) => (
+            <div className="college card col-md-6 mb-4" key={college.id}>
+              <h3 className="mb-3">College</h3>
+              <p className="lead">Name: {college.name}</p>
+              <p className="lead">ID: {college.id}</p>
 
-      {deleteCollegeId === college.id ? (
-        <button className="btn btn-danger" onClick={handleDelete}>
-          Withdraw
-        </button>
-      ) : (
-        <div className="form-check mb-3">
-            <input
-            className="form-check-input form-check-input-sm"  // Added form-check-input-sm
-            type="checkbox"
-            onChange={() => handleCheckboxChange(college.id)}
-            checked={selectedColleges.includes(college.id)}
-          />
-          <label className="form-check-label">Apply</label>
+              {deleteCollegeId === college.id ? (
+                <button className="btn btn-danger" onClick={handleDelete}>
+                  Withdraw
+                </button>
+              ) : (
+                <div className="form-check mb-3">
+                  <input
+                    className="form-check-input form-check-input-sm"  // Added form-check-input-sm
+                    type="checkbox"
+                    onChange={() => handleCheckboxChange(college.id)}
+                    checked={selectedColleges.includes(college.id)}
+                  />
+                  <label className="form-check-label">Apply</label>
+                </div>
+              )}
+            </div>
+          ))}
+          {selectedColleges.length > 0 && (
+            <button className="btn btn-success col-12" onClick={handleApplyAll}>
+              Apply to Selected Colleges
+            </button>
+          )}
         </div>
-      )}
-    </div>
-  ))}
-  {selectedColleges.length > 0 && (
-    <button className="btn btn-success col-12" onClick={handleApplyAll}>
-      Apply to Selected Colleges
-    </button>
-  )}
-</div>
-    </div>
+      </div>
     </div>
   );
 };
