@@ -1,5 +1,4 @@
 // Navbar.js
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // Import your custom styles
@@ -11,7 +10,12 @@ const Navbar = () => {
         <div className="navbar-content">
           <div className="navbar-logo">
             <Link to="/" className="logo">
-             Commonly
+              <img
+                src="/logo.png" // Replace with the actual path to your logo image
+                alt="Logo"
+                className="logo-image"
+              />
+              Commonly
             </Link>
           </div>
           <div className="navbar-links">
@@ -33,4 +37,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
