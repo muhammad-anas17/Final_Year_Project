@@ -131,51 +131,50 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-    <Navbar2 />
-    <div className="dashboard-content">
-      <div className="user-info">
+      <Navbar2 />
+      <div className="container mt-5">
+        <h1 className="text-center">Welcome to Your Dashboard</h1>
         {userData ? (
-          <>
-            <p>User ID: {userData.id}</p>
-            <p>Email: {userData.email}</p>
-          </>
+          <div className="user-info card p-4">
+            <p className="lead">User ID: {userData.id}</p>
+            <p className="lead">Email: {userData.email}</p>
+          </div>
         ) : (
           <p>Loading user data...</p>
         )}
+
+        <div className="colleges">
+          {colleges.map((college) => (
+            <div className="college card p-4" key={college.id}>
+              <h3 className="mb-3">College</h3>
+              <p className="lead">Name: {college.name}</p>
+              <p className="lead">ID: {college.id}</p>
+
+              {deleteCollegeId === college.id ? (
+                <button className="btn btn-danger" onClick={handleDelete}>
+                  Withdraw
+                </button>
+              ) : (
+                <div className="form-check mb-3">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    onChange={() => handleCheckboxChange(college.id)}
+                    checked={selectedColleges.includes(college.id)}
+                  />
+                  <label className="form-check-label">Apply</label>
+                </div>
+              )}
+            </div>
+          ))}
+          {selectedColleges.length > 0 && (
+            <button className="btn btn-success" onClick={handleApplyAll}>
+              Apply to Selected Colleges
+            </button>
+          )}
+        </div>
       </div>
-
-      <div className="colleges">
-        {colleges.map((college) => (
-          <div className="college" key={college.id}>
-            <h3>College</h3>
-            <p>Name: {college.name}</p>
-            <p>ID: {college.id}</p>
-
-            {deleteCollegeId === college.id ? (
-              <button className="withdraw-button" onClick={handleDelete}>
-                Withdraw
-              </button>
-            ) : (
-              <label>
-                <input
-                  type="checkbox"
-                  onChange={() => handleCheckboxChange(college.id)}
-                  checked={selectedColleges.includes(college.id)}
-                />
-                Apply
-              </label>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {selectedColleges.length > 0 && (
-        <button className="apply-button" onClick={handleApplyAll}>
-          Apply to Selected Colleges
-        </button>
-      )}
     </div>
-  </div>
   );
 };
 
