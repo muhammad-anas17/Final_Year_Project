@@ -76,7 +76,7 @@ function App() {
           <Route path="/cquestion/:userId" element={<Cquestion />} />
           <Route path="/collegeform/:userId" element={<CollegeForm />} />
           <Route path="/applicant/:userId" element={<Applicant/>} />
-          <Route path="/gardes/:userId" element={<Grades/>}/>
+          <Route path="/grades/:userId" element={<Grades/>}/>
           <Route path="/books" element={<Books />} />
         </Routes>
       </Router>

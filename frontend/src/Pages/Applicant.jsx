@@ -38,6 +38,11 @@ const Applicant = () => {
   
     fetchData();
   }, [userId]);
+
+  const handleViewGradesClick = (recordUserId) => {
+    // Use the navigate function to go to the desired route
+    navigate(`/grades/${recordUserId}`);
+  };
   
 
   return (
@@ -54,7 +59,7 @@ const Applicant = () => {
               <p>UserId: {record.UserId}</p>
               <p>SubmissionDate: {record.SubmissionDate}</p>
               <p>ReviewStatus: {record.ReviewStatus}</p>
-              <button>View Grades</button>
+              <button onClick={() => handleViewGradesClick(record.UserId)}>View Grades</button>
               <hr/>
               
             </div>
