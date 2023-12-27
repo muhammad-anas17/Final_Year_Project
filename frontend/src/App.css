@@ -35,17 +35,25 @@
   }
 }
 
-
+/* Add this to your CSS stylesheet */
 .main-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Adjust the width percentages as needed */
-.imageSlider {
-  flex: 1; /* Takes up 50% of the width */
+.content-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Adjust the max-width as needed */
 }
 
-.NewsSection {
-  flex: 1; /* Takes up 50% of the width */
-  margin-left: 20px; /* Adjust margin as needed */
+.slider-container {
+  flex: 1; /* Take up remaining space in the container */
+}
+
+/* Adjust the width and styling for the YouTube video */
+.youtube-video {
+  margin-right: auto;
+  width: 50%; /* Adjust the width as needed */
 }

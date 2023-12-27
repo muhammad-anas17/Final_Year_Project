@@ -6,6 +6,7 @@ import './ImageSlider.css'; // Import your custom styles
 
 const ImageSlider = () => {
   const images = [
+    'https://th.bing.com/th/id/R.15f09cdead36a93d1c8f59057563f27e?rik=GCvBeUhroacMcw&riu=http%3a%2f%2fwww.citysearch.pk%2fUF%2fCompanies%2f7654%2fthe-lyceum-logo.png&ehk=34ZV8w9VRrstgx0P3rzD2HwaJm2bcRbiG3ZMXJRtyQk%3d&risl=&pid=ImgRaw&r=0',
     'https://i.brecorder.com/primary/2020/11/5fa2a09b8b7ce.jpg',
     'https://admissions.cedar.edu.pk/img/central_logo.png',
     'https://play-lh.googleusercontent.com/b0J82epnts7d43agbovaUdZ8OPBfuDke30nNK8hfoFjzBTsSOlISlowDQ6oGVJFqfDY',

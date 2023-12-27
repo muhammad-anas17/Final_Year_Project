@@ -8,7 +8,8 @@ const NewsSection = () => {
     {
       title: 'Important Application Deadline Update',
       date: 'January 15, 2023',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+      content: 'Nixor College second round of admission ends soon...',
+      thumbnail: 'https://th.bing.com/th/id/OIP.lM7vrjxN9izFXm8kPhkd8QHaDE?rs=1&pid=ImgDetMain', // URL to the thumbnail image
     },
     // Add more news items as needed
   ];
@@ -19,9 +20,14 @@ const NewsSection = () => {
       <ul>
         {newsItems.map((item, index) => (
           <li key={index}>
-            <h3>{item.title}</h3>
-            <p className="news-date">{item.date}</p>
-            <p>{item.content}</p>
+            <div className="thumbnail-container">
+              <img src={item.thumbnail} alt={`Thumbnail for ${item.title}`} />
+            </div>
+            <div className="news-content">
+              <h3>{item.title}</h3>
+              <p className="news-date">{item.date}</p>
+              <p>{item.content}</p>
+            </div>
           </li>
         ))}
       </ul>
