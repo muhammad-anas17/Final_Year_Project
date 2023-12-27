@@ -8,32 +8,12 @@ import Navbar2 from '../components/Navbar2';
 const Grades = () => {
     const navigate = useNavigate();
     const { userId } = useParams();
-    const [gradesData, setGradesData] = useState(null);
+    const [grade, setGradesData] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            // Fetch applicant data
-            const applicantResponse = await axios.get(`http://localhost:8800/api/status/${userId}`);
-            setGradesData(applicantResponse.data);
-  
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-        };
-      
-        fetchData();
-      }, [userId]);
-
-
-
-
-
+    
   return (
     <div>
       <h2>Grades Information</h2>
-      {gradesData ? (
-        gradesData.map((grade) => (
           <div key={grade.StudentID}>
             <p>StudentID: {grade.StudentID}</p>
             <p>UserID: {grade.userID}</p>
@@ -47,10 +27,7 @@ const Grades = () => {
             <p>Optional Subject 3: {grade.optional_subject3_name}, Grade: {grade.optional_subject3_grade}</p>
             <p>Optional Subject 4: {grade.optional_subject4_name}, Grade: {grade.optional_subject4_grade}</p>
           </div>
-        ))
-      ) : (
-        <p>Loading grades data...</p>
-      )}
+ 
     </div>
     
   )
