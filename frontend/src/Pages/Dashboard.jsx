@@ -156,14 +156,14 @@ const Dashboard = () => {
                 </button>
               ) : (
                 <div className="form-check mb-3">
-                  <input
-                    className="form-check-input form-check-input-sm"  // Added form-check-input-sm
-                    type="checkbox"
-                    onChange={() => handleCheckboxChange(college.id)}
-                    checked={selectedColleges.includes(college.id)}
-                  />
-                  <label className="form-check-label">Apply</label>
-                </div>
+                       <input
+                         className="form-check-input fs-4" // Using Bootstrap utility class fs-4 for smaller size
+                         type="checkbox"
+                         onChange={() => handleCheckboxChange(college.id)}
+                         checked={selectedColleges.includes(college.id)}
+                          />
+  <label className="form-check-label">Apply</label>
+</div>
               )}
             </div>
           ))}
