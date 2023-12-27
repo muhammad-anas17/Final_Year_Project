@@ -41,7 +41,7 @@ const Applicant = () => {
 
   const handleViewGradesClick = (recordUserId) => {
     // Use the navigate function to go to the desired route
-    navigate(`/grades/${recordUserId}`);
+    window.open(`/grades/${recordUserId}`, '_blank')
   };
   
 
@@ -76,26 +76,7 @@ const Applicant = () => {
         <p>Loading applicant data...</p>
       )}
 
-      <h2>Grades Information</h2>
-      {gradesData ? (
-        gradesData.map((grade) => (
-          <div key={grade.StudentID}>
-            <p>StudentID: {grade.StudentID}</p>
-            <p>UserID: {grade.userID}</p>
-            <p>Math Grade: {grade.math_grade}</p>
-            <p>English Grade: {grade.english_grade}</p>
-            <p>Urdu Grade: {grade.urdu_grade}</p>
-            <p>Pakistan Studies Grade: {grade.Pak_studies_grade}</p>
-            <p>Islamiat Grade: {grade.islamiat_grade}</p>
-            <p>Optional Subject 1: {grade.optional_subject1_name}, Grade: {grade.optional_subject1_grade}</p>
-            <p>Optional Subject 2: {grade.optional_subject2_name}, Grade: {grade.optional_subject2_grade}</p>
-            <p>Optional Subject 3: {grade.optional_subject3_name}, Grade: {grade.optional_subject3_grade}</p>
-            <p>Optional Subject 4: {grade.optional_subject4_name}, Grade: {grade.optional_subject4_grade}</p>
-          </div>
-        ))
-      ) : (
-        <p>Loading grades data...</p>
-      )}
+     
     </div>
   );
 };
