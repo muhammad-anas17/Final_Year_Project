@@ -130,34 +130,35 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <Navbar2/>
-    <div>
-      <h1>Welcome to Your Dashboard</h1>
-      {userData ? (
-        <div>
-          <p>User ID: {userData.id}</p>
-          <p>Email: {userData.email}</p>
-        </div>
-      ) : (
-        <p>Loading user data...</p>
-      )}
+    <div className="dashboard-container">
+    <Navbar2 />
+    <div className="dashboard-content">
+      <div className="user-info">
+        {userData ? (
+          <>
+            <p>User ID: {userData.id}</p>
+            <p>Email: {userData.email}</p>
+          </>
+        ) : (
+          <p>Loading user data...</p>
+        )}
+      </div>
 
-      <div className='colleges'>
+      <div className="colleges">
         {colleges.map((college) => (
-          <div className='college' key={college.id}>
+          <div className="college" key={college.id}>
             <h3>College</h3>
             <p>Name: {college.name}</p>
-            <p>id: {college.id}</p>
+            <p>ID: {college.id}</p>
 
             {deleteCollegeId === college.id ? (
-              <button className='Delete' onClick={handleDelete}>
+              <button className="withdraw-button" onClick={handleDelete}>
                 Withdraw
               </button>
             ) : (
               <label>
                 <input
-                  type='checkbox'
+                  type="checkbox"
                   onChange={() => handleCheckboxChange(college.id)}
                   checked={selectedColleges.includes(college.id)}
                 />
@@ -166,14 +167,15 @@ const Dashboard = () => {
             )}
           </div>
         ))}
-        {selectedColleges.length > 0 && (
-          <button className='Apply' onClick={handleApplyAll}>
-            Apply to Selected Colleges
-          </button>
-        )}
       </div>
+
+      {selectedColleges.length > 0 && (
+        <button className="apply-button" onClick={handleApplyAll}>
+          Apply to Selected Colleges
+        </button>
+      )}
     </div>
-    </div>
+  </div>
   );
 };
 

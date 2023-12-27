@@ -11,6 +11,12 @@
   }
 }
 
+.App {
+  background-color:#9ad3f9; /* Adjust the color as needed */
+  min-height: 100vh; /* Ensure the entire viewport height is covered */
+  display: flex;
+  flex-direction: column;
+}
 .App-header {
   background-color: #1b3a79;
   min-height: 100vh;
