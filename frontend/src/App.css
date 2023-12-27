@@ -48,12 +48,5 @@
   max-width: 1200px; /* Adjust the max-width as needed */
 }
 
-.slider-container {
-  flex: 1; /* Take up remaining space in the container */
-}
 
-/* Adjust the width and styling for the YouTube video */
-.youtube-video {
-  margin-right: auto;
-  width: 50%; /* Adjust the width as needed */
-}
+
