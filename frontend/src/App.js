@@ -51,10 +51,12 @@ function App() {
                 <HeroSection />
                     
                     {/* Image Slider */}
+                    <div className="row-container">
                            <ImageSlider />
   
                            {/* video */}
-                            <YouTubeVideo videoId="74Rvy6R-I0A" /> 
+                            <YouTubeVideo videoId="74Rvy6R-I0A" className="youtube-video"/> 
+                    </div>
 
                          {/*NewsSection */}
                         <NewsSection />

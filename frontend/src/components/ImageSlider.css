@@ -1,6 +1,8 @@
 /* ImageSlider.css */
 
+
 .image-slider {
+  flex: 1;
     margin: 20px 0;
   }
   
@@ -12,4 +14,6 @@
     width: 100%;
     border-radius: 10px;
   }
+
+
   
