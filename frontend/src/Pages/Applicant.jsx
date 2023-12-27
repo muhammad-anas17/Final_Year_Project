@@ -9,12 +9,19 @@ const Applicant = () => {
   const navigate = useNavigate();
   const { userId } = useParams();
   const [applicantData, setApplicantData] = useState(null);
+  const [gradesData, setGradesData] = useState(null);
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:8800/api/status/${userId}`);
         setApplicantData(response.data);
+        const user = response.data.UserId;
+        console.log("Applicant ID: ", user);
+        const res= await axios.get(`http://localhost:8800/api/grades/${user}`);
+        console.log(res);
+        
       } catch (error) {
         console.error('Error fetching applicant data:', error);
       }

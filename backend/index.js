@@ -278,15 +278,16 @@ app.get('/api/status/:id', (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
     }
 
-    const user = data[0];
+    console.log('Query result:', data);
 
-    if (!user) {
+    if (data.length === 0) {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    return res.json(user);
+    return res.json(data);
   });
 });
+
 
 // fetch grades for each user
 
