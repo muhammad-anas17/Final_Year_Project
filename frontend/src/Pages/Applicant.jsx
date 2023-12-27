@@ -10,6 +10,30 @@ const Applicant = () => {
   const { userId } = useParams();
   const [applicantData, setApplicantData] = useState(null);
   const [gradesData, setGradesData] = useState(null);
+  const [status, setStatus]= useState({
+    ReviewStatus:"",
+  });
+
+  const handleChange= (e) =>{
+    console.log("Target name:", e.target.name);
+    console.log("Target value:", e.target.value);
+    setStatus((prev)=>({...prev, [e.target.name]: e.target.value}));
+  };
+
+  const handleClick= async (e,userId) =>{
+    e.preventDefault();
+    try{
+      console.log(status);
+      console.log("UserID: ", userId);
+      await axios.put(`http://localhost:8800/reviewstatus/${userId}`, status);
+
+
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,7 +83,34 @@ const Applicant = () => {
               <p>UserId: {record.UserId}</p>
               <p>SubmissionDate: {record.SubmissionDate}</p>
               <p>ReviewStatus: {record.ReviewStatus}</p>
-              <button onClick={() => handleViewGradesClick(record.UserId)}>View Grades</button>
+              <button className="btn btn-primary btn-block" onClick={() => handleViewGradesClick(record.UserId)}>View Grades</button>
+              <form>
+              <div className="mb-3">
+                    <label htmlFor="status"></label>
+                    <select
+                      id="ReviewStatus"
+                      className="form-control"
+                      name="ReviewStatus" 
+                      onChange={handleChange}
+                      value={status.ReviewStatus}
+                    >
+                      <option value="pending">Pending</option>
+                      <option value="accept">Accept</option>
+                      <option value="reject">Reject</option>
+
+
+                    </select>
+                  </div>
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                    onClick={(e) => handleClick(e, record.UserId)}
+                  >
+                    Change Status
+                  </button>
+                  </form>
+
+
               <hr/>
               
             </div>
@@ -71,6 +122,8 @@ const Applicant = () => {
             <p>SubmissionDate: {applicantData.SubmissionDate}</p>
             <p>ReviewStatus: {applicantData.ReviewStatus}</p>
           </div>
+
+          
         )
       ) : (
         <p>Loading applicant data...</p>

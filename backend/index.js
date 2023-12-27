@@ -310,3 +310,17 @@ app.get('/api/grades/:id', (req, res) => {
     return res.json(user);
   });
 });
+
+app.put("/reviewstatus/:id", (req, res) => {
+  const bookId = req.params.id;
+  const q = "UPDATE status SET `ReviewStatus`= ? WHERE UserId=?";
+
+  const values = [
+    req.body.ReviewStatus,
+  ];
+
+  db.query(q, [...values,bookId], (err, data) => {
+    if (err) return res.send(err);
+    return res.json(data);
+  });
+});
