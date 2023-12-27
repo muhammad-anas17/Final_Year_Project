@@ -13,22 +13,28 @@ const Navbar = () => {
             <Link to="/" className="logo">
               <img
                 // src="./logo.png" // Replace with the actual path to your logo image
-                src={require('./logo.png')}
+                src={require('./logo.jpg')}
                 alt="Logo"
                 className="logo-image"
               />
-              Commonly
             </Link>
           </div>
           <div className="navbar-links">
             <nav className="navigation">
               <ul>
                 <li>
-                  <Link to="/add">Sign Up</Link>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/aboutus">About us</Link>
                 </li>
                 <li>
                   <Link to="/login">Log In</Link>
                 </li>
+                <li>
+                  <Link to="/add">Sign Up</Link>
+                </li>
+                
               </ul>
             </nav>
           </div>
