@@ -156,12 +156,13 @@ const Dashboard = () => {
                 </button>
               ) : (
                 <div className="form-check mb-3">
-                       <input
-                         className="form-check-input fs-4" // Using Bootstrap utility class fs-4 for smaller size
-                         type="checkbox"
-                         onChange={() => handleCheckboxChange(college.id)}
-                         checked={selectedColleges.includes(college.id)}
-                          />
+  <input
+    className="form-check-input custom-checkbox"
+    type="checkbox"
+    onChange={() => handleCheckboxChange(college.id)}
+    checked={selectedColleges.includes(college.id)}
+    style={{ width: '20px', height: '20px' }}
+  />
   <label className="form-check-label">Apply</label>
 </div>
               )}
