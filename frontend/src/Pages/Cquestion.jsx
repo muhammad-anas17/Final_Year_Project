@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from '../components/Navbar'
 
 const Cquestion = () => {
     const { userId } = useParams();
@@ -41,6 +42,8 @@ const Cquestion = () => {
 
 
   return (
+    <div>
+      <header><Navbar/></header>
     <div className="container-fluid bg-light p-5">
     <div className="container">
       <div className="row justify-content-center">
@@ -207,6 +210,7 @@ const Cquestion = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
 
   )

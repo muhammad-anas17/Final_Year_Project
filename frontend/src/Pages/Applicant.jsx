@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar2 from '../components/Navbar2'
 
 const Applicant = () => {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const Applicant = () => {
 
   return (
     <div>
+      <header><Navbar2/></header>
       <h2>Applicant Information</h2>
       {applicantData ? (
 

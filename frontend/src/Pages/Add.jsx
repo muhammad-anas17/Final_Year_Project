@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/AddStyles.css';
+import Navbar from '../components/Navbar'
 
 const Add = () => {
   const [book, setBooks]= useState({
@@ -46,6 +47,8 @@ const Add = () => {
 
   }
  return (
+  <div>
+    <header><Navbar/></header>
   <div className="container-fluid bg-light p-5">
       <div className="container">
         <div className="row justify-content-center align-items-center vh-100">
@@ -132,6 +135,7 @@ const Add = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

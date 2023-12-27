@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Navbar2 from '../components/Navbar2'
 // import './Dashboard.css';
 
 const Dashboard = () => {
@@ -130,6 +131,8 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Navbar2/>
+    <div>
       <h1>Welcome to Your Dashboard</h1>
       {userData ? (
         <div>
@@ -169,6 +172,7 @@ const Dashboard = () => {
           </button>
         )}
       </div>
+    </div>
     </div>
   );
 };

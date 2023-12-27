@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Navbar2 from '../components/Navbar2'
 
 const CollegeForm = () => {
     const { userId } = useParams();
@@ -53,6 +54,7 @@ const CollegeForm = () => {
 
     return (
         <div>
+            <header><Navbar2/></header>
             <form>
                 {formFeild.map((form, index) => {
                     return (

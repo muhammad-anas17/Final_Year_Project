@@ -287,3 +287,27 @@ app.get('/api/status/:id', (req, res) => {
     return res.json(user);
   });
 });
+
+// fetch grades for each user
+
+app.get('/api/grades/:id', (req, res) => {
+  const userId = req.params.id;
+  console.log('userId:', userId);
+
+  const q = 'SELECT * FROM grades WHERE userID = ?';
+
+  db.query(q, [userId], (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+    const user = data[0];
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    return res.json(user);
+  });
+});

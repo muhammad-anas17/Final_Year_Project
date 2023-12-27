@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import Navbar2 from '../components/Navbar2'
 
 const Cdashboard = () => {
   const navigate= useNavigate();
@@ -60,6 +61,7 @@ const Cdashboard = () => {
   return (
    
 <div>
+  <header><Navbar2/></header>
       <h1>Welcome to Your  College Dashboard</h1>
       {userData ? (
         <div>

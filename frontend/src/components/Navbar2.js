@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import './Navbar.css'; // Import your custom styles
 
 
-const Navbar = () => {
+
+const Navbar2 = () => {
   return (
     <div className="navbar">
       <div className="container">
@@ -42,4 +43,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar2;
