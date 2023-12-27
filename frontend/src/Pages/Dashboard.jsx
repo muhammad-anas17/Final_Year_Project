@@ -156,8 +156,8 @@ const Dashboard = () => {
         </button>
       ) : (
         <div className="form-check mb-3">
-          <input
-            className="form-check-input"
+            <input
+            className="form-check-input form-check-input-sm"  // Added form-check-input-sm
             type="checkbox"
             onChange={() => handleCheckboxChange(college.id)}
             checked={selectedColleges.includes(college.id)}
