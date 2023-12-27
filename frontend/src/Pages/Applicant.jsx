@@ -54,6 +54,9 @@ const Applicant = () => {
               <p>UserId: {record.UserId}</p>
               <p>SubmissionDate: {record.SubmissionDate}</p>
               <p>ReviewStatus: {record.ReviewStatus}</p>
+              <button>View Grades</button>
+              <hr/>
+              
             </div>
           ))
         ) : (
