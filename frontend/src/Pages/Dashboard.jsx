@@ -146,7 +146,7 @@ const Dashboard = () => {
         <div className="colleges">
           {colleges.map((college) => (
             <div className="college card p-4" key={college.id}>
-              <h3 className="mb-3">College</h3>
+              <h3 className="mb-30">College</h3>
               <p className="lead">Name: {college.name}</p>
               <p className="lead">ID: {college.id}</p>
 

@@ -19,7 +19,7 @@ const Applicant = () => {
         setApplicantData(applicantResponse.data);
 
         // Fetch grades data
-        const gradesResponse = await axios.get(`http://localhost:8800/api/grades/${userId}`);
+        const gradesResponse = await axios.get(`http://localhost:8800/api/grades/${applicantResponse.data.UserId}`);
         setGradesData(gradesResponse.data);
 
         console.log(applicantResponse.data);
