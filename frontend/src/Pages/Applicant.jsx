@@ -17,20 +17,28 @@ const Applicant = () => {
         // Fetch applicant data
         const applicantResponse = await axios.get(`http://localhost:8800/api/status/${userId}`);
         setApplicantData(applicantResponse.data);
-
+        
         // Fetch grades data
-        const gradesResponse = await axios.get(`http://localhost:8800/api/grades/${applicantResponse.data.UserId}`);
-        setGradesData(gradesResponse.data);
-
+        const gradesPromises = applicantResponse.data.map(async (applicant) => {
+          const gradesResponse = await axios.get(`http://localhost:8800/api/grades/${applicant.UserId}`);
+          return gradesResponse.data;
+        });
+  
+        // Wait for all grades requests to complete
+        const allGradesData = await Promise.all(gradesPromises);
+  
+        setGradesData(allGradesData);
+  
         console.log(applicantResponse.data);
-        console.log(gradesResponse.data);
+        console.log(allGradesData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
+  
     fetchData();
   }, [userId]);
+  
 
   return (
     <div>
