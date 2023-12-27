@@ -20,6 +20,7 @@ import NewsSection from "./Pages/NewsSection";
 import YouTubeVideo from './Pages/YouTubeVideo';
 import CollegeForm from './Pages/CollegeForm';
 import Applicant from "./Pages/Applicant";
+import Aboutus from "./Pages/Aboutus";
 
 import './App.css';
 // Import components for homepage sections
@@ -72,6 +73,7 @@ function App() {
           <Route path="/add" element={<Add />} />
           <Route path="/update/:id" element={<Update />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/dashboard/:userId" element={<Dashboard />} />
           <Route path="/cdashboard/:userId" element={<Cdashboard />} />
           <Route path="/uquestion/:userId" element={<Uquestion />} />

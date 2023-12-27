@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Applicant = () => {
   const navigate = useNavigate();
@@ -23,12 +24,12 @@ const Applicant = () => {
 
   return (
     <div>
+      <h2>Applicant Information</h2>
       {applicantData ? (
+
         <div>
-          <h2>Applicant Information</h2>
           <p>StatusID: {applicantData.StatusID}</p>
           <p>UserId: {applicantData.UserId}</p>
-          <p>SchoolID: {applicantData.SchoolID}</p>
           <p>SubmissionDate: {applicantData.SubmissionDate}</p>
           <p>ReviewStatus: {applicantData.ReviewStatus}</p>
         </div>
