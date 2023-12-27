@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <div className="hero-section">
       <div className="hero-content">
-        <h1>Welcome to the Commonly</h1>
+        <h1>Welcome to Commonly</h1>
         <p>Your pathway to success starts here</p>
         <button>Get Started</button>
       </div>

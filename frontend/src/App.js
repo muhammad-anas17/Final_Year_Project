@@ -46,16 +46,15 @@ function App() {
             element={
               <>
                  
-                
                 {/* Hero Section */}
                 <HeroSection />
                                        
                 <div className="content-container">
                   
                     {/* Image Slider */}
-                          <div className="slider-container">
+                        
                            <ImageSlider />
-                           </div>
+  
                            {/* video */}
                          <YouTubeVideo videoId="74Rvy6R-I0A" /> </div>
                          
