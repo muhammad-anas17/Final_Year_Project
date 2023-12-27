@@ -37,21 +37,21 @@
     justify-content: space-between;
   }
   
-  .delete-button,
-  .update-button,
-  .add-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-  }
   
-  .delete-button:hover,
-  .update-button:hover,
-  .add-button:hover {
-    background-color: #0056b3;
-  }
-  
+.delete-button,
+.update-button,
+.add-button {
+  background-color: #007bff;
+  color: #fff !important;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.delete-button:hover,
+.update-button:hover,
+.add-button:hover {
+  background-color: #bec5cb2d;
+}

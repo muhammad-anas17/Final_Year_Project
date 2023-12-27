@@ -5,11 +5,11 @@
   }
   
   .slick-slider {
-    width: 100%;
+    width: 50%;
   }
   
   .slick-slide img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
   }
   

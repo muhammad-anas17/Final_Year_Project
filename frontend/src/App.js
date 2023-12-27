@@ -15,6 +15,7 @@ import Login from './Pages/Login';
 import Uquestion from './Pages/Uquestion';
 import Cdashboard from './Pages/Cdashboard';
 import Cquestion from './Pages/Cquestion';
+import NewsSection from "./Pages/NewsSection";
 
 import CollegeForm from './Pages/CollegeForm';
 
@@ -39,22 +40,29 @@ function App() {
 
 
         <Routes>
+          
           <Route
             path="/"
             element={
               <>
-
+                 
+            
                 {/* Hero Section */}
                 <HeroSection />
-
-                {/* Image Slider */}
-                <ImageSlider />
-
+                
+                      {/* Image Slider */}
+                        <ImageSlider /> 
+                
+                      {/* Image Slider */}
+                        <NewsSection />
+      
                 {/* Footer */}
                 <Footer />
               </>
             }
           />
+          
+
           {/* Other Routes */}
           <Route path="/add" element={<Add />} />
           <Route path="/update/:id" element={<Update />} />
