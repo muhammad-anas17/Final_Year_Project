@@ -7,6 +7,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import your pages
+
 import Add from './Pages/Add';
 import Books from './Pages/Books';
 import Update from './Pages/Update';
@@ -19,7 +20,7 @@ import NewsSection from "./Pages/NewsSection";
 import YouTubeVideo from './Pages/YouTubeVideo';
 import CollegeForm from './Pages/CollegeForm';
 
-
+import './App.css';
 // Import components for homepage sections
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -45,23 +46,19 @@ function App() {
             path="/"
             element={
               <>
-                 
+             
                 {/* Hero Section */}
                 <HeroSection />
-                                       
-                <div className="content-container">
-                  
+                    
                     {/* Image Slider */}
-                        
                            <ImageSlider />
   
                            {/* video */}
-                         <YouTubeVideo videoId="74Rvy6R-I0A" /> </div>
-                         
-                        
-                      {/* Image Slider */}
+                            <YouTubeVideo videoId="74Rvy6R-I0A" /> 
+
+                         {/*NewsSection */}
                         <NewsSection />
-      
+                        
                 {/* Footer */}
                 <Footer />
               </>

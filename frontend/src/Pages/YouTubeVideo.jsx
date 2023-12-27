@@ -6,7 +6,7 @@ import './YouTubeVideo.css';
 const YouTubeVideo = ({ videoId }) => {
   // Set up the options for the YouTube player
   const opts = {
-    height: '390',
+    height: '400',
     width: '640',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters

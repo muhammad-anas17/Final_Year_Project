@@ -1,8 +1,8 @@
 /* NewsSection.css */
 
 .news-section {
-  width: 50%;
-  margin-left: auto;
+  width: 60%;
+  margin-right: auto;
   padding: 20px;
   background-color: #f8f8f8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
