@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Navbar2 from '../components/Navbar2'
+import Navbar2 from '../components/Navbar2';
 // import './Dashboard.css';
 
 const Dashboard = () => {
@@ -41,51 +41,14 @@ const Dashboard = () => {
     fetchAllColleges();
   }, []);
 
-  const [application, setApplication] = useState({
-    uid: userId,
-    cid: null,
-    sdate: formattedDate,
-    status: "pending",
-  });
+  const [deleteCollegeIds, setDeleteCollegeIds] = useState([]);
 
-  const handleApply = async (id) => {
+  const handleDelete = async (collegeId) => {
     try {
-      await setApplication((prevState) => ({
-        ...prevState,
-        cid: id,
-      }));
-    } catch (err) {
-      console.log(err);
-    }
-  };
+      await axios.delete(`http://localhost:8800/api/withdraw?collegeId=${collegeId}&userId=${userId}`);
+      setDeleteCollegeIds((prevDeleteCollegeIds) => [...prevDeleteCollegeIds, collegeId]);
+      setDeleteCollegeIds((prevDeleteCollegeIds) => prevDeleteCollegeIds.filter(id => id !== collegeId));
 
-  useEffect(() => {
-    console.log("Updated Application State:", application);
-
-    const postData = async () => {
-      try {
-        await axios.post("http://localhost:8800/api/apply", application, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        setDeleteCollegeId(application.cid);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    if (application.cid !== null) {
-      postData();
-    }
-  }, [application]);
-
-  const [deleteCollegeId, setDeleteCollegeId] = useState(null);
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`http://localhost:8800/api/withdraw?collegeId=${deleteCollegeId}&userId=${userId}`);
-      setDeleteCollegeId(null);
     } catch (err) {
       console.log(err);
     }
@@ -119,7 +82,7 @@ const Dashboard = () => {
           },
         });
 
-        setDeleteCollegeId(collegeId);
+        setDeleteCollegeIds((prevDeleteCollegeIds) => [...prevDeleteCollegeIds, collegeId]);
       });
 
       await Promise.all(applyAllPromises);
@@ -150,21 +113,21 @@ const Dashboard = () => {
               <p className="lead">Name: {college.name}</p>
               <p className="lead">ID: {college.id}</p>
 
-              {deleteCollegeId === college.id ? (
-                <button className="btn btn-danger" onClick={handleDelete}>
+              {deleteCollegeIds.includes(college.id) ? (
+                <button className="btn btn-danger" onClick={() => handleDelete(college.id)}>
                   Withdraw
                 </button>
               ) : (
                 <div className="form-check mb-3">
-  <input
-    className="form-check-input custom-checkbox"
-    type="checkbox"
-    onChange={() => handleCheckboxChange(college.id)}
-    checked={selectedColleges.includes(college.id)}
-    style={{ width: '20px', height: '20px' }}
-  />
-  <label className="form-check-label">Apply</label>
-</div>
+                  <input
+                    className="form-check-input custom-checkbox"
+                    type="checkbox"
+                    onChange={() => handleCheckboxChange(college.id)}
+                    checked={selectedColleges.includes(college.id)}
+                    style={{ width: '20px', height: '20px' }}
+                  />
+                  <label className="form-check-label">Apply</label>
+                </div>
               )}
             </div>
           ))}
