@@ -3,8 +3,16 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const CollegeForm = () => {
+    const { userId } = useParams();
+ 
+ 
+    // console.log(" College Id is:", { userId })
+
+
     const [formFeild, setFormFeild] = useState([
-        { Question: "" },
+         { CollegeID: userId ,
+            Question: "", 
+        }
     ])
 
     const handleChange = (event, index) => {
@@ -16,12 +24,25 @@ const CollegeForm = () => {
     };
 
     const AddFeild = () => {
-        let object = { Question: "" }
+        let object = { CollegeID: userId ,Question: "" }
         setFormFeild([...formFeild, object]);
     };
     const handleClick = async (e) => {
         e.preventDefault();
         console.log(formFeild);
+        try{
+            const formattedData = formFeild.map(question => [
+                question.CollegeID,
+                question.Question,
+            ]);
+    
+            await axios.post("http://localhost:8800/form", formattedData);
+            // navigate(`/login`);
+      
+          }catch(err){
+            console.log(err);
+          }
+
     }
     const RemoveFeild=(index)=>{
         let data= [...formFeild];
