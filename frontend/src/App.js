@@ -19,6 +19,7 @@ import Cquestion from './Pages/Cquestion';
 import NewsSection from "./Pages/NewsSection";
 import YouTubeVideo from './Pages/YouTubeVideo';
 import CollegeForm from './Pages/CollegeForm';
+import Applicant from "./Pages/Applicant";
 
 import './App.css';
 // Import components for homepage sections
@@ -76,6 +77,7 @@ function App() {
           <Route path="/uquestion/:userId" element={<Uquestion />} />
           <Route path="/cquestion/:userId" element={<Cquestion />} />
           <Route path="/collegeform/:userId" element={<CollegeForm />} />
+          <Route path="/applicant/:userId" element={<Applicant/>} />
           <Route path="/books" element={<Books />} />
         </Routes>
       </Router>

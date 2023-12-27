@@ -44,6 +44,16 @@ const Cdashboard = () => {
   
   }
 
+  const handleApplicants= async (e)=>{
+    e.preventDefault();
+    const response = await axios.get(`http://localhost:8800/api/college/${userId}`);
+    console.log(response.data.id);
+    navigate(`/applicant/${response.data.id}`);
+
+    
+
+  }
+
 
 
 
@@ -61,6 +71,8 @@ const Cdashboard = () => {
         <p>Loading user data...</p>
       )}
       <button onClick={handleClick}>Create Admission Form</button>
+
+      <button onClick={handleApplicants}>View Applicants</button>
 
       
     </div>
