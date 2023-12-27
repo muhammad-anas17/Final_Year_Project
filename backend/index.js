@@ -293,7 +293,6 @@ app.get('/api/status/:id', (req, res) => {
 
 app.get('/api/grades/:id', (req, res) => {
   const userId = req.params.id;
-  console.log('userId:', userId);
 
   const q = 'SELECT * FROM grades WHERE userID = ?';
 
@@ -303,12 +302,10 @@ app.get('/api/grades/:id', (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
     }
 
-    const user = data[0];
-
-    if (!user) {
+    if (data.length === 0) {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    return res.json(user);
+    return res.json(data);
   });
 });

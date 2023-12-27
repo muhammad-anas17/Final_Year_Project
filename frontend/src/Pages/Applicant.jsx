@@ -9,16 +9,23 @@ const Applicant = () => {
   const navigate = useNavigate();
   const { userId } = useParams();
   const [applicantData, setApplicantData] = useState(null);
+  const [gradesData, setGradesData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8800/api/status/${userId}`);
-        setApplicantData(response.data);
+        // Fetch applicant data
+        const applicantResponse = await axios.get(`http://localhost:8800/api/status/${userId}`);
+        setApplicantData(applicantResponse.data);
 
-        console.log(response.data);
+        // Fetch grades data
+        const gradesResponse = await axios.get(`http://localhost:8800/api/grades/${applicantResponse.data.UserId}`);
+        setGradesData(gradesResponse.data);
+
+        console.log(applicantResponse.data);
+        console.log(gradesResponse.data);
       } catch (error) {
-        console.error('Error fetching applicant data:', error);
+        console.error('Error fetching data:', error);
       }
     };
 
@@ -39,7 +46,6 @@ const Applicant = () => {
               <p>UserId: {record.UserId}</p>
               <p>SubmissionDate: {record.SubmissionDate}</p>
               <p>ReviewStatus: {record.ReviewStatus}</p>
-              <hr />
             </div>
           ))
         ) : (
@@ -48,11 +54,31 @@ const Applicant = () => {
             <p>UserId: {applicantData.UserId}</p>
             <p>SubmissionDate: {applicantData.SubmissionDate}</p>
             <p>ReviewStatus: {applicantData.ReviewStatus}</p>
-            
           </div>
         )
       ) : (
-        <p>Loading...</p>
+        <p>Loading applicant data...</p>
+      )}
+
+      <h2>Grades Information</h2>
+      {gradesData ? (
+        gradesData.map((grade) => (
+          <div key={grade.StudentID}>
+            <p>StudentID: {grade.StudentID}</p>
+            <p>UserID: {grade.userID}</p>
+            <p>Math Grade: {grade.math_grade}</p>
+            <p>English Grade: {grade.english_grade}</p>
+            <p>Urdu Grade: {grade.urdu_grade}</p>
+            <p>Pakistan Studies Grade: {grade.Pak_studies_grade}</p>
+            <p>Islamiat Grade: {grade.islamiat_grade}</p>
+            <p>Optional Subject 1: {grade.optional_subject1_name}, Grade: {grade.optional_subject1_grade}</p>
+            <p>Optional Subject 2: {grade.optional_subject2_name}, Grade: {grade.optional_subject2_grade}</p>
+            <p>Optional Subject 3: {grade.optional_subject3_name}, Grade: {grade.optional_subject3_grade}</p>
+            <p>Optional Subject 4: {grade.optional_subject4_name}, Grade: {grade.optional_subject4_grade}</p>
+          </div>
+        ))
+      ) : (
+        <p>Loading grades data...</p>
       )}
     </div>
   );
