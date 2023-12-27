@@ -1,6 +1,7 @@
 // HeroSection.js
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HeroSection.css'; // Import your custom styles
 
 const HeroSection = () => {
@@ -9,7 +10,10 @@ const HeroSection = () => {
       <div className="hero-content">
         <h1>Welcome to Commonly</h1>
         <p>Your pathway to success starts here</p>
-        <button>Get Started</button>
+        <Link to="/add">
+          <button>Get Started</button>
+        </Link>
+       
       </div>
     </div>
   );

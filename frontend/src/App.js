@@ -34,11 +34,8 @@ import ImageSlider from './components/ImageSlider';
 function App() {
   return (
     <div className="App">
-
-     
-
       <Router>
-        
+
         <Routes>
           
           <Route
