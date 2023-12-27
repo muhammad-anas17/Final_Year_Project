@@ -264,3 +264,26 @@ app.post('/form', (req, res) => {
       return res.json(data);
   });
 });
+
+
+app.get('/api/status/:id', (req, res) => {
+  const userId = req.params.id;
+  console.log('userId:', userId);
+
+  const q = 'SELECT * FROM status WHERE SchoolID = ?';
+
+  db.query(q, [userId], (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+    const user = data[0];
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    return res.json(user);
+  });
+});
