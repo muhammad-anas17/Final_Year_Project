@@ -15,7 +15,8 @@ import Login from './Pages/Login';
 import Uquestion from './Pages/Uquestion';
 import Cdashboard from './Pages/Cdashboard';
 import Cquestion from './Pages/Cquestion';
-
+import NewsSection from "./Pages/NewsSection";
+import YouTubeVideo from './Pages/YouTubeVideo';
 import CollegeForm from './Pages/CollegeForm';
 
 
@@ -39,22 +40,35 @@ function App() {
 
 
         <Routes>
+          
           <Route
             path="/"
             element={
               <>
-
+                 
+                
                 {/* Hero Section */}
                 <HeroSection />
-
-                {/* Image Slider */}
-                <ImageSlider />
-
+                                       
+                <div className="content-container">
+                  
+                    {/* Image Slider */}
+                          <div className="slider-container">
+                           <ImageSlider />
+                           </div>
+                           {/* video */}
+                         <YouTubeVideo videoId="74Rvy6R-I0A" /> </div>
+                         
+                        
+                      {/* Image Slider */}
+                        <NewsSection />
+      
                 {/* Footer */}
                 <Footer />
               </>
             }
           />
+
           {/* Other Routes */}
           <Route path="/add" element={<Add />} />
           <Route path="/update/:id" element={<Update />} />
