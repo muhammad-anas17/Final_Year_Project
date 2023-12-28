@@ -22,6 +22,8 @@ import CollegeForm from './Pages/CollegeForm';
 import Applicant from "./Pages/Applicant";
 import Aboutus from "./Pages/Aboutus";
 import Grades from "./Pages/Grades";
+import Answer from "./Pages/Answer";
+import Questionnaire from "./Pages/Questionnaire";
 
 import './App.css';
 // Import components for homepage sections
@@ -77,6 +79,8 @@ function App() {
           <Route path="/collegeform/:userId" element={<CollegeForm />} />
           <Route path="/applicant/:userId" element={<Applicant/>} />
           <Route path="/grades/:userId" element={<Grades/>}/>
+          <Route path="/answer/:userId" element={<Answer/>}/>
+          <Route path="/questionnaire/:userId" element={<Questionnaire/>}/>
           <Route path="/books" element={<Books />} />
         </Routes>
       </Router>

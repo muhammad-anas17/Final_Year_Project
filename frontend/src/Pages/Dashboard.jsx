@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Navbar2 from '../components/Navbar2';
-// import './Dashboard.css';
 
 const Dashboard = () => {
   const { userId } = useParams();
@@ -42,19 +41,9 @@ const Dashboard = () => {
   }, []);
 
   const [deleteCollegeIds, setDeleteCollegeIds] = useState([]);
-
-  const handleDelete = async (collegeId) => {
-    try {
-      await axios.delete(`http://localhost:8800/api/withdraw?collegeId=${collegeId}&userId=${userId}`);
-      setDeleteCollegeIds((prevDeleteCollegeIds) => [...prevDeleteCollegeIds, collegeId]);
-      setDeleteCollegeIds((prevDeleteCollegeIds) => prevDeleteCollegeIds.filter(id => id !== collegeId));
-
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const [selectedColleges, setSelectedColleges] = useState([]);
+
+  const navigate = useNavigate();
 
   const handleCheckboxChange = (collegeId) => {
     setSelectedColleges((prevSelectedColleges) => {
@@ -66,8 +55,20 @@ const Dashboard = () => {
     });
   };
 
+  const handleDelete = async (collegeId) => {
+    try {
+      await axios.delete(`http://localhost:8800/api/withdraw?collegeId=${collegeId}&userId=${userId}`);
+      setDeleteCollegeIds((prevDeleteCollegeIds) => [...prevDeleteCollegeIds, collegeId]);
+      setDeleteCollegeIds((prevDeleteCollegeIds) => prevDeleteCollegeIds.filter(id => id !== collegeId));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleApplyAll = async () => {
     try {
+      const appliedCollegeIds = [];
+
       const applyAllPromises = selectedColleges.map(async (collegeId) => {
         const applicationData = {
           uid: userId,
@@ -82,11 +83,17 @@ const Dashboard = () => {
           },
         });
 
-        setDeleteCollegeIds((prevDeleteCollegeIds) => [...prevDeleteCollegeIds, collegeId]);
+        appliedCollegeIds.push(collegeId);
       });
 
       await Promise.all(applyAllPromises);
+      setDeleteCollegeIds((prevDeleteCollegeIds) => [...prevDeleteCollegeIds, ...appliedCollegeIds]);
       setSelectedColleges([]);
+
+      // Navigate to /questionnaire/:userId with applied college IDs as parameters
+      const queryParams = appliedCollegeIds.join('&');
+      // navigate(`/questionnaire/${userId}?collegeIds=${queryParams}`);
+      window.open(`/questionnaire/${userId}?collegeIds=${queryParams}`, '_blank')
     } catch (err) {
       console.log(err);
     }
