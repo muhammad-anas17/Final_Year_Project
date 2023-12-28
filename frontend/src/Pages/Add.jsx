@@ -55,7 +55,7 @@ const Add = () => {
           <div className="col-md-20">
             <div className="card border-0 shadow-lg">
               <div className="card-body p-5">
-                <h1 className="mb-4 text-center">Add New Applicant</h1>
+                <h1 className="mb-4 text-center">Sign Up</h1>
                 <form>
                   {/* <div className="mb-3">
                     <input
@@ -127,7 +127,7 @@ const Add = () => {
                     className="btn btn-primary btn-block"
                     onClick={handleClick}
                   >
-                    Add Applicant
+                    Sign Up
                   </button>
                 </form>
               </div>

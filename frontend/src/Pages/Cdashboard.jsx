@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar2 from '../components/Navbar2'
 
 const Cdashboard = () => {
@@ -41,7 +42,8 @@ const Cdashboard = () => {
     e.preventDefault();
     const response = await axios.get(`http://localhost:8800/api/college/${userId}`);
     console.log(response.data.id);
-    navigate(`/collegeform/${response.data.id}`);
+    // navigate(`/collegeform/${response.data.id}`);
+    window.open(`/collegeform/${response.data.id}`, '_blank')
   
   }
 
@@ -66,6 +68,7 @@ const Cdashboard = () => {
       {userData ? (
         <div>
           <p>User ID: {userData.id}</p>
+          
           <p>Email: {userData.email}</p>
 
         </div>

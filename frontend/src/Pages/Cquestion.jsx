@@ -33,7 +33,7 @@ const Cquestion = () => {
     try{
       console.log(book);
       await axios.post("http://localhost:8800/college",book);
-      // navigate(`/login`);
+      navigate(`/login`);
 
     }catch(err){
       console.log(err);
