@@ -35,3 +35,7 @@
 .btn-primary:hover {
   background-color: #0056b3;
 }
+
+.bg-light {
+  background-color: #80b1e1; /* Set your desired background color */
+}

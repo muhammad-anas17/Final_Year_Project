@@ -61,8 +61,7 @@ function App() {
                          {/*NewsSection */}
                         <NewsSection />
                         
-                {/* Footer */}
-                <Footer />
+
               </>
             }
           />
@@ -84,6 +83,9 @@ function App() {
           <Route path="/books" element={<Books />} />
         </Routes>
       </Router>
+      <footer>
+    <Footer/>
+    </footer>
     </div>
   );
 }

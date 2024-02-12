@@ -7,8 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '../components/Navbar'
 
 
-
-
 const Login = () => {
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
@@ -53,8 +51,6 @@ const Login = () => {
   return (
     <div>
       <Navbar/>
-    
-
       <div className="container-fluid login-container">
         <div className="row justify-content-center align-items-center vh-100">
           <div className="col-md-20">
