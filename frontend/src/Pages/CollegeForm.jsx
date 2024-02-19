@@ -54,27 +54,44 @@ const CollegeForm = () => {
 
     return (
         <div>
-            <header><Navbar2/></header>
-            <form>
-                {formFeild.map((form, index) => {
-                    return (
-                        <div key={index}>
-                            <input name='Question'
+            <Navbar2 />
+            <div >
+                <form>
+                    {formFeild.map((form, index) => (
+                        <div key={index} className="mt-3">
+                            <input
+                                name='Question'
+                                className="form-control-lg"
                                 placeholder='Question'
-                                onChange={event => handleChange(event, index)}
-                                value={form.Question} ></input>
-                                <button onClick={()=> RemoveFeild(index)}>Remove</button>
+                                onChange={(event) => handleChange(event, index)}
+                                value={form.Question}
+                            />
+                            <button
+                                type="button"
+                                className="btn btn-danger mt-3"
+                                onClick={() => RemoveFeild(index)}
+                            >
+                                Remove
+                            </button>
                         </div>
-                    )
-                }
-
-                )}
-            </form>
-            <button onClick={AddFeild}>Add Question</button>
-            <button onClick={handleClick}>Submit</button>
-
+                    ))}
+                </form>
+                <button
+                    type="button"
+                    className="btn btn-secondary mt-3"
+                    onClick={AddFeild}
+                >
+                    Add Question
+                </button>
+                <button
+                    type="button"
+                    className="btn btn-primary mt-5"
+                    onClick={handleClick}
+                >
+                    Submit
+                </button>
+            </div>
         </div>
-
     )
 }
 
