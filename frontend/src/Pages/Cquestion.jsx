@@ -44,7 +44,7 @@ const Cquestion = () => {
   return (
     <div>
       <header><Navbar/></header>
-    <div className="container-fluid bg-light p-5">
+    <div className="container-fluid p-5">
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-md-20">

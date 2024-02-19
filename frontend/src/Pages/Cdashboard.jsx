@@ -79,7 +79,6 @@ const Cdashboard = () => {
 
       <button onClick={handleApplicants}>View Applicants</button>
 
-      
     </div>
   )
 }

@@ -49,7 +49,7 @@ const Add = () => {
  return (
   <div>
     <header><Navbar/></header>
-  <div className="container-fluid bg-light p-5">
+  <div className="container-fluid p-10">
       <div className="container">
         <div className="row justify-content-center align-items-center vh-100">
           <div className="col-md-20">
@@ -116,12 +116,6 @@ const Add = () => {
                       <option value="college">College</option>
                     </select>
                   </div>
-
-
-
-
-
-
                   <button
                     type="submit"
                     className="btn btn-primary btn-block"

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './styles/UpdateStyles.css';
+import Navbar from '../components/Navbar'
 
 const Update = () => {
   const [book, setBooks]= useState({
@@ -34,7 +35,10 @@ const Update = () => {
 
   }
  return (
-  <div className="container-fluid bg-light p-5">
+ <div>
+  <header><Navbar/></header>
+  <div className="container-fluid p-5" >
+     
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-20">
@@ -88,6 +92,7 @@ const Update = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }
