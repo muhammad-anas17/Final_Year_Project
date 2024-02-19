@@ -324,3 +324,64 @@ app.put("/reviewstatus/:id", (req, res) => {
     return res.json(data);
   });
 });
+
+////////////////////////////////TEST CODE/////////////////////////////////////////////////////
+
+// app.post('/api/questions', (req, res) => {
+//   const questionIDs = req.body.questionIDs;
+
+//   // Ensure questionIDs is an array
+//   if (!Array.isArray(questionIDs)) {
+//     return res.status(400).json({ error: 'questionIDs must be an array' });
+//   }
+
+//   // Build the SQL query to fetch QuestionTexts based on the provided QuestionIDs
+//   const query = 'SELECT QuestionID, QuestionText FROM questions WHERE QuestionID IN (?)';
+  
+//   db.query(query, [questionIDs], (err, results) => {
+//     if (err) {
+//       console.error(err);
+//       return res.status(500).json({ error: 'Internal Server Error' });
+//     }
+
+//     // Create a map to store QuestionTexts by QuestionID
+//     const questionMap = {};
+
+//     // Iterate through the results and populate the questionMap
+//     results.forEach(row => {
+//       questionMap[row.QuestionID] = row.QuestionText;
+//     });
+
+//     // Prepare the response with QuestionTexts
+//     const response = questionIDs.map(id => ({
+//       QuestionID: id,
+//       QuestionText: questionMap[id] || null // Set to null if QuestionID not found
+//     }));
+
+//     // Send the response
+//     return res.json(response);
+//   });
+// });
+
+
+// Assuming you have already imported necessary modules and set up your Express app
+
+// Endpoint to fetch questions based on collegeIds
+// Endpoint to fetch questions based on CollegeID
+app.get('/api/questions', (req, res) => {
+  const { collegeIds } = req.query;
+
+  // Assuming collegeIds is a comma-separated string of college IDs
+  const collegeIdsArray = collegeIds.split(',');
+
+  // Construct the SQL query to fetch QuestionText based on CollegeID
+  const query = 'SELECT QuestionText FROM questions WHERE CollegeID IN (?)';
+  db.query(query, [collegeIdsArray], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+    return res.json(results);
+  });
+});
+

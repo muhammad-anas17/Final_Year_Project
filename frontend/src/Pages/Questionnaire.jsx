@@ -10,9 +10,8 @@ const Questionnaire = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchQuestions = async () => {
       try {
-        // Make a request to the API endpoint with college IDs as parameters
         const response = await axios.get(`http://localhost:8800/api/questions`, {
           params: { collegeIds: collegeIds.join(',') },
         });
@@ -25,22 +24,25 @@ const Questionnaire = () => {
       }
     };
 
-    fetchData();
+    fetchQuestions();
   }, [collegeIds]);
 
   return (
     <div>
       <h1>Questionnaire</h1>
+      <p>College IDs: {collegeIds.join(', ')}</p>
       {loading ? (
-        <p>Loading questions...</p>
+        <p>Loading...</p>
       ) : (
-        <ul>
-          {questions.map((question) => (
-            <li key={question.QuestionID}>
-              {question.QuestionText} (College ID: {question.CollegeID})
-            </li>
+        <div>
+          {questions.map(question => (
+            <div key={question.QuestionID}>
+              <p>Question ID: {question.QuestionID}</p>
+              <p>Question Text: {question.QuestionText}</p>
+              {/* Add more fields if necessary */}
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

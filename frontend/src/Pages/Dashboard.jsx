@@ -87,13 +87,14 @@ const Dashboard = () => {
       });
 
       await Promise.all(applyAllPromises);
-      setDeleteCollegeIds((prevDeleteCollegeIds) => [...prevDeleteCollegeIds, ...appliedCollegeIds]);
       setSelectedColleges([]);
 
-      // Navigate to /questionnaire/:userId with applied college IDs as parameters
-      const queryParams = appliedCollegeIds.join('&');
-      // navigate(`/questionnaire/${userId}?collegeIds=${queryParams}`);
-      window.open(`/questionnaire/${userId}?collegeIds=${queryParams}`, '_blank')
+      // Construct the URL with userId and appliedCollegeIds as query parameters
+      const queryParams = appliedCollegeIds.join(',');
+      const url = `/questionnaire/${userId}?collegeIds=${queryParams}`;
+
+      // Navigate to the questionnaire page with query parameters
+      navigate(url);
     } catch (err) {
       console.log(err);
     }
