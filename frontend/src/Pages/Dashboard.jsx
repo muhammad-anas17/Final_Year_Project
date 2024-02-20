@@ -113,41 +113,52 @@ const Dashboard = () => {
         ) : (
           <p>Loading user data...</p>
         )}
-
-        <div className="colleges row">
-          {colleges.map((college) => (
-            <div className="college card col-md-6 mb-4" key={college.id}>
-              <h3 className="mb-3">College</h3>
-              <p className="lead">Name: {college.name}</p>
-              <p className="lead">ID: {college.id}</p>
-
-              {deleteCollegeIds.includes(college.id) ? (
-                <button className="btn btn-danger" onClick={() => handleDelete(college.id)}>
-                  Withdraw
-                </button>
-              ) : (
-                <div className="form-check mb-3">
-                  <input
-                    className="form-check-input custom-checkbox"
-                    type="checkbox"
-                    onChange={() => handleCheckboxChange(college.id)}
-                    checked={selectedColleges.includes(college.id)}
-                    style={{ width: '20px', height: '20px' }}
-                  />
-                  <label className="form-check-label">Apply</label>
-                </div>
-              )}
-            </div>
-          ))}
-          {selectedColleges.length > 0 && (
-            <button className="btn btn-success col-12" onClick={handleApplyAll}>
-              Apply to Selected Colleges
-            </button>
-          )}
-        </div>
+  
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {colleges.map((college) => (
+              <tr key={college.id}>
+                <td>{college.id}</td>
+                <td>{college.name}</td>
+                <td>
+                  {deleteCollegeIds.includes(college.id) ? (
+                    <button className="btn btn-danger" onClick={() => handleDelete(college.id)}>
+                      Withdraw
+                    </button>
+                  ) : (
+                    <div className="form-check mb-3">
+                      <input
+                        className="form-check-input custom-checkbox"
+                        type="checkbox"
+                        onChange={() => handleCheckboxChange(college.id)}
+                        checked={selectedColleges.includes(college.id)}
+                        style={{ width: '20px', height: '20px' }}
+                      />
+                      <label className="form-check-label">Apply</label>
+                    </div>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+  
+        {selectedColleges.length > 0 && (
+          <button className="btn btn-success col-12" onClick={handleApplyAll}>
+            Apply to Selected Colleges
+          </button>
+        )}
       </div>
     </div>
   );
+  
 };
 
 export default Dashboard;

@@ -3,11 +3,15 @@
 
 .image-slider {
   flex: 1;
-    margin: 20px 0;
+    margin: 20px;
   }
   
   .slick-slider {
-    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 70%;
   }
   
   .slick-slide img {
