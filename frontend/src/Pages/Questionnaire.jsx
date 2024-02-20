@@ -28,18 +28,20 @@ const Questionnaire = () => {
   }, [collegeIds]);
 
   return (
-    <div>
-      <h1>Questionnaire</h1>
-      <p>College IDs: {collegeIds.join(', ')}</p>
+    <div className="container mt-5">
+      <h1 className="mb-4">Questionnaire</h1>
+      <h5 className="mb-4">College IDs: {collegeIds.join(', ')}</h5>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div>
           {questions.map(question => (
-            <div key={question.QuestionID}>
-              <p>Question ID: {question.QuestionID}</p>
-              <p>Question Text: {question.QuestionText}</p>
-              {/* Add more fields if necessary */}
+            <div className="card mb-3" key={question.QuestionID}>
+              <div className="card-body">
+                <h5 className="card-title">Question ID: {question.QuestionID}</h5>
+                <p className="card-text">Question Text: {question.QuestionText}</p>
+                {/* Add more fields if necessary */}
+              </div>
             </div>
           ))}
         </div>
