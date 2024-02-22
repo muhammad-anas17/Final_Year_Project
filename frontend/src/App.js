@@ -32,6 +32,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HeroSection from './components/HeroSection';
 import ImageSlider from './components/ImageSlider';
+import CardList from "./components/Cards"; 
 
 
 function App() {
@@ -54,12 +55,12 @@ function App() {
                     <div className="row-container">
                            <ImageSlider />
   
-                           {/* video */}
-                            <YouTubeVideo videoId="74Rvy6R-I0A" className="youtube-video"/> 
+                           {/*  <YouTubeVideo videoId="74Rvy6R-I0A" className="youtube-video"/>  */}
+                           
                     </div>
-
-                         {/*NewsSection */}
-                        <NewsSection />
+                    <CardList/>
+                     {/*/*<NewsSection /> */}
+                        
                         
 
               </>
