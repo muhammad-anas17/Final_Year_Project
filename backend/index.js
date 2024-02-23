@@ -348,11 +348,11 @@ app.get('/api/questions', (req, res) => {
 
 // Endpoint to insert answers into the answers table
 app.post('/api/answers', (req, res) => {
-  const { UserId, QuestionID, AnswerText } = req.body;
+  const { UserId, QuestionID, AnswerText, CollegeID } = req.body;
 
   // Construct the SQL query to insert the answer into the answers table
-  const query = 'INSERT INTO answers (UserId, QuestionID, AnswerText) VALUES (?, ?, ?)';
-  const values = [UserId, QuestionID, AnswerText];
+  const query = 'INSERT INTO answers (UserId, QuestionID, AnswerText, CollegeID) VALUES (?, ?, ?, ?)';
+  const values = [UserId, QuestionID, AnswerText, CollegeID];
 
   db.query(query, values, (err, result) => {
     if (err) {

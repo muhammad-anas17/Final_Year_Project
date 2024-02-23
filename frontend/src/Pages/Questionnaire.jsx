@@ -42,6 +42,7 @@ const Questionnaire = () => {
           UserId: userId,
           QuestionID: question.QuestionID,
           AnswerText: answerText,
+          CollegeID: question.CollegeID,
         });
       }
       console.log('Answers submitted successfully!');
