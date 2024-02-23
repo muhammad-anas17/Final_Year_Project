@@ -1,7 +1,9 @@
 import React from 'react';
-
+import StudentImage from './images/student.jpg'; // Importing the logo image directly
+import TrackImage from './images/tracking.jpg';  // Importing another image
+import ManageImage from './images/management.jpg';
+import './Cards.css'
 function Card({ imageSrc, title, text }) {
-  const imageUrl = require(`../${imageSrc}`).default;
   return (
     <div className="card" style={{ width: '20rem' }}>
       <img className="card-img-top" src={imageSrc} alt="Card image cap" />
@@ -19,32 +21,26 @@ export default function CardList() {
     <div className="row">
       <div className="col-md-3">
         <Card 
-          imageSrc="dash.png"
+          imageSrc={StudentImage} 
           title="Dashboard"
           text="Manage your personal dashboard to see all the colleges you have applied to."
         />
       </div>
       <div className="col-md-3">
         <Card 
-          imageSrc="dash.png"
+          imageSrc={TrackImage}
           title="Room Service"
           text="Some quick example text to build on the card title and make up the bulk of the card's content."
         />
       </div>
       <div className="col-md-3">
         <Card 
-          imageSrc="dash.png"
+          imageSrc={ManageImage} 
           title="Kitchen Management"
           text="Some quick example text to build on the card title and make up the bulk of the card's content."
         />
       </div>
-      <div className="col-md-3">
-        <Card 
-          imageSrc="dash.png"
-          title="Billing Management"
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
-        />
-      </div>
+
     </div>
   );
 }

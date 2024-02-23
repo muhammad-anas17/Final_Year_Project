@@ -325,6 +325,7 @@ app.put("/reviewstatus/:id", (req, res) => {
   });
 });
 
+////////////////////////////////TEST CODE/////////////////////////////////////////////////////
 
 app.get('/api/questions', (req, res) => {
   const { collegeIds } = req.query;
@@ -333,13 +334,32 @@ app.get('/api/questions', (req, res) => {
   const collegeIdsArray = collegeIds.split(',');
 
   // Construct the SQL query to fetch QuestionText based on CollegeID
-  const query = 'SELECT QuestionText FROM questions WHERE CollegeID IN (?)';
+  const query = 'SELECT QuestionID, CollegeID,QuestionText FROM questions WHERE CollegeID IN (?)';
   db.query(query, [collegeIdsArray], (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ error: 'Internal Server Error' });
     }
     return res.json(results);
+  });
+});
+
+
+
+// Endpoint to insert answers into the answers table
+app.post('/api/answers', (req, res) => {
+  const { UserId, QuestionID, AnswerText } = req.body;
+
+  // Construct the SQL query to insert the answer into the answers table
+  const query = 'INSERT INTO answers (UserId, QuestionID, AnswerText) VALUES (?, ?, ?)';
+  const values = [UserId, QuestionID, AnswerText];
+
+  db.query(query, values, (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+    return res.json({ success: true, message: 'Answer inserted successfully' });
   });
 });
 
