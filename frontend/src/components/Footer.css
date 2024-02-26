@@ -3,7 +3,11 @@
 .footer {
   background-color: #0c1440;
     color: #fff;
-    padding: 10px 0;
+    padding: 1px 0;
+    
+    width: 100%;
+    bottom: 0;
+    
   }
   
   .container {
@@ -26,13 +30,13 @@
   
   .footer-links ul {
     list-style: none;
-    padding: 30px 0;
+    padding: 15px 0;
     margin: 0;
     display: flex;
   }
   
   .footer-links li {
-    margin-right: 20px;
+    margin-right: 10px;
   }
   
   .footer-links a {
@@ -49,7 +53,9 @@
   .footer-bottom {
     color:#fff;
     background-color: #0c1440;
-    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 0px 0;
+    text-align: center;
   }
   
   .footer-bottom p {
@@ -60,5 +66,4 @@
 
     width: 200px; /* Adjust the width of the logo image */
     height: 100px; /* Maintain the aspect ratio */
-    margin-right: 10px; /* Add some spacing between the logo and text */
   }

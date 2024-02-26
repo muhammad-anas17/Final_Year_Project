@@ -22,22 +22,22 @@ export default function CardList() {
       <div className="col-md-3">
         <Card 
           imageSrc={StudentImage} 
-          title="Dashboard"
+          title="Personal Dashboard"
           text="Manage your personal dashboard to see all the colleges you have applied to."
         />
       </div>
       <div className="col-md-3">
         <Card 
           imageSrc={TrackImage}
-          title="Room Service"
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+          title="Application Tracking"
+          text="Monitor your college applications from submission to acceptance with our intuitive tracking feature."
         />
       </div>
       <div className="col-md-3">
         <Card 
           imageSrc={ManageImage} 
-          title="Kitchen Management"
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+          title="College Recommendations"
+          text="Discover your ideal college match effortlessly with our personalized recommender system."
         />
       </div>
 
