@@ -3,7 +3,7 @@ import React from 'react'
 const ocr = () => {
   return (
     <div>
-    <h1>OCR</h1>
+      <h3>OCR</h3>
     </div>
   )
 }
