@@ -24,6 +24,7 @@ import Aboutus from "./Pages/Aboutus";
 import Grades from "./Pages/Grades";
 import Answer from "./Pages/Answer";
 import Questionnaire from "./Pages/Questionnaire";
+import ocr from "./Pages/ocr";
 
 import './App.css';
 // Import components for homepage sections
@@ -82,6 +83,7 @@ function App() {
           <Route path="/answer/:userId" element={<Answer/>}/>
           <Route path="/questionnaire/:userId" element={<Questionnaire/>}/>
           <Route path="/books" element={<Books />} />
+          <Route path="/ocr" element={<ocr />} />
         </Routes>
       </Router>
       <footer>
