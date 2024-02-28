@@ -363,3 +363,18 @@ app.post('/api/answers', (req, res) => {
   });
 });
 
+app.get('/api/answers', (req, res) => {
+  const { CollegeID, UserID } = req.query;
+
+  // Construct the SQL query to fetch answers based on CollegeID and UserID
+  const query = 'SELECT * FROM answers WHERE CollegeID = ? AND UserID = ?';
+  const values = [CollegeID, UserID];
+
+  db.query(query, values, (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+    return res.json(results);
+  });
+});

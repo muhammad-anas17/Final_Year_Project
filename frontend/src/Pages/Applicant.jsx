@@ -67,6 +67,13 @@ const Applicant = () => {
     // Use the navigate function to go to the desired route
     window.open(`/grades/${recordUserId}`, '_blank')
   };
+
+  const handleViewAnswersClick= (recordUserId)=>{
+    console.log({userId},"Is college id")
+    window.open(`/viewanswers/${userId}/${recordUserId}`, '_blank')
+
+
+  }
   
 
   return (
@@ -84,6 +91,11 @@ const Applicant = () => {
               <p>SubmissionDate: {record.SubmissionDate}</p>
               <p>ReviewStatus: {record.ReviewStatus}</p>
               <button className="btn btn-primary btn-block" onClick={() => handleViewGradesClick(record.UserId)}>View Grades</button>
+
+
+              <button className="btn btn-primary btn-block" onClick={() => handleViewAnswersClick(record.UserId)}>View Answers</button>
+
+
               <form>
               <div className="mb-3">
                     <label htmlFor="status"></label>
