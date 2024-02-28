@@ -22,20 +22,39 @@ app.get('/user',(req,res)=>{
         return res.json(data);
     });
 });
-app.post('/user',(req,res)=>{
-    const q= "INSERT into user (`Name`, `email`, `password`,`ContactInformation`,`type`) VALUES (?)";
-    const values = [
-        req.body.Name,
-        req.body.email,
-        req.body.password,
-        req.body.ContactInformation,
-        req.body.type,
-   ];
-    
-      db.query(q, [values], (err, data) => {
-        if (err) return res.send(err);
-        return res.json(data); });
+app.post('/user', (req, res) => {
+  // Check if email already exists
+  const checkEmailQuery = "SELECT COUNT(*) AS count FROM user WHERE email = ?";
+  db.query(checkEmailQuery, [req.body.email], (err, result) => {
+      if (err) {
+          return res.status(500).json({ error: "Internal server error" });
+      }
+
+      const emailExists = result[0].count > 0;
+      if (emailExists) {
+          return res.status(400).json({ error: "Email already exists" });
+      }
+
+      // If email does not exist, proceed with inserting new user
+      const insertQuery = "INSERT INTO user (`Name`, `email`, `password`, `ContactInformation`, `type`) VALUES (?, ?, ?, ?, ?)";
+      const values = [
+          req.body.Name,
+          req.body.email,
+          req.body.password,
+          req.body.ContactInformation,
+          req.body.type,
+      ];
+
+      db.query(insertQuery, values, (err, data) => {
+          if (err) {
+              return res.status(500).json({ error: "Failed to insert user" });
+          }
+          return res.json(data);
+      });
+  });
 });
+
+
 
 
 app.post('/api/getid', (req, res) => {
